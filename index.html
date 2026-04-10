@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint Intranet</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+    background-color: #f4f6f9;
+    color: #323130;
+}
+
+/* 上部バー */
+.topbar {
+    height: 72px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1dfdd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ms-logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #0078d4, #00a4ef);
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.site-label {
+    font-size: 13px;
+    color: #605e5c;
+    margin-bottom: 2px;
+}
+
+.site-title h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.search-box {
+    width: 320px;
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    background-color: #faf9f8;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #0078d4;
+    background-color: #ffffff;
+}
+
+/* ナビ */
+.nav {
+    background-color: #ffffff;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 52px;
+    border-bottom: 1px solid #edebe9;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #323130;
+    font-size: 14px;
+    padding: 14px 4px;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover {
+    color: #0078d4;
+}
+
+.nav-link.active {
+    color: #0078d4;
+    border-bottom: 3px solid #0078d4;
+    font-weight: 600;
+}
+
+/* 全体 */
+.container {
+    max-width: 1280px;
+    margin: 32px auto 60px;
+    padding: 0 24px;
+}
+
+/* ヒーロー */
+.hero {
+    background: linear-gradient(135deg, #eaf4ff, #ffffff);
+    border: 1px solid #e1dfdd;
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 32px;
+}
+
+.hero-tag {
+    color: #0078d4;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #605e5c;
+}
+
+/* セクション */
+.section {
+    margin-bottom: 36px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.section-link {
+    text-decoration: none;
+    color: #0078d4;
+    font-size: 14px;
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+/* カード共通 */
+.card-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.departments {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.tools {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #edebe9;
+    border-radius: 16px;
+    padding: 22px 18px;
+    text-decoration: none;
+    color: #323130;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 170px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    border-color: #c7e0f4;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.tool-icon {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.tool-card {
+    min-height: 190px;
+}
+
+/* 会議室予約 */
+.meeting-card {
+    background-color: #ffffff;
+    border: 1px solid #edebe9;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#pic2 {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .topbar-right {
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 20px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- 上部バー -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="ms-logo">S</div>
+            <div class="site-title">
+                <p class="site-label">SharePoint</p>
+                <h1>社内イントラネット</h1>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <input type="text" placeholder="社内検索" class="search-box">
+        </div>
+    </header>
+
+    <!-- ナビ -->
+    <nav class="nav">
+        <a href="#" class="nav-link active">ホーム</a>
+        <a href="#" class="nav-link">部門ポータル</a>
+        <a href="#" class="nav-link">業務ツール</a>
+        <a href="#" class="nav-link">会議室予約</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- ヒーロー -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="hero-tag">Company Portal</p>
+                <h2>ようこそ、社内ポータルへ</h2>
+                <p>
+                    部門サイト、業務ツール、会議室予約、社内ニュースなど、
+                    よく使う情報へすばやくアクセスできます。
+                </p>
+            </div>
+        </section>
+
+        <!-- 部門ポータル -->
+        <section class="section">
+            <div class="section-header">
+                <h2>部門ポータルサイト</h2>
+            </div>
+
+            <div class="card-grid departments">
+                <a href="#" class="card">
+                    <p class="card-title">財務部</p>
+                    <img src="imgfin.png" alt="財務部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">総務・人事部</p>
+                    <img src="imgadm.png" alt="総務・人事部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">IT部</p>
+                    <img src="imgit.png" alt="IT部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">営業部</p>
+                    <img src="imgsales.png" alt="営業部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">サービス部</p>
+                    <img src="imgservice.png" alt="サービス部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">マーケティング部</p>
+                    <img src="imgmark.png" alt="マーケティング部" class="card-icon">
+                </a>
+
+                <a href="#" class="card">
+                    <p class="card-title">資材部</p>
+                    <img src="imgshizai.png" alt="資材部" class="card-icon">
+                </a>
+            </div>
+        </section>
+
+        <!-- 業務ツール -->
+        <section class="section">
+            <div class="section-header">
+                <h2>よく使う業務ツール</h2>
+            </div>
+
+            <div class="card-grid tools">
+                <a href="#" class="card tool-card">
+                    <p class="card-title">Styleflow</p>
+                    <img src="Styleflow.png" alt="Styleflow" class="tool-icon">
+                </a>
+
+                <a href="#" class="card tool-card">
+                    <p class="card-title">Zoho</p>
+                    <img src="zoho.png" alt="Zoho" class="tool-icon">
+                </a>
+
+                <a href="#" class="card tool-card">
+                    <p class="card-title">NetSuite</p>
+                    <img src="NS.png" alt="NetSuite" class="tool-icon">
+                </a>
+
+                <a href="#" class="card tool-card">
+                    <p class="card-title">Salesforce</p>
+                    <img src="SF.png" alt="Salesforce" class="tool-icon">
+                </a>
+            </div>
+        </section>
+
+        <!-- 会議室予約 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>会議室予約状況</h2>
+                <a href="#" class="section-link">Outlookで開く</a>
+            </div>
+
+            <div class="meeting-card">
+                <img src="pic2.png" alt="会議室予約状況" id="pic2">
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
