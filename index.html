@@ -6,277 +6,426 @@
     <title>SharePoint Intranet</title>
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
-    background-color: #f4f6f9;
-    color: #323130;
-}
+        body {
+            font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+            background-color: #f4f6f9;
+            color: #323130;
+        }
 
-/* 上部バー */
-.topbar {
-    height: 72px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e1dfdd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 32px;
-}
+        /* 上部バー */
+        .topbar {
+            height: 72px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1dfdd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 32px;
+        }
 
-.topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-.ms-logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #0078d4, #00a4ef);
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
+        .ms-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0078d4, #00a4ef);
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
 
-.site-label {
-    font-size: 13px;
-    color: #605e5c;
-    margin-bottom: 2px;
-}
+        .site-label {
+            font-size: 13px;
+            color: #605e5c;
+            margin-bottom: 2px;
+        }
 
-.site-title h1 {
-    font-size: 22px;
-    font-weight: 600;
-}
+        .site-title h1 {
+            font-size: 22px;
+            font-weight: 600;
+        }
 
-.search-box {
-    width: 320px;
-    height: 40px;
-    border: 1px solid #d1d1d1;
-    border-radius: 8px;
-    padding: 0 14px;
-    font-size: 14px;
-    background-color: #faf9f8;
-}
+        .search-box {
+            width: 320px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 14px;
+            background-color: #faf9f8;
+        }
 
-.search-box:focus {
-    outline: none;
-    border-color: #0078d4;
-    background-color: #ffffff;
-}
+        .search-box:focus {
+            outline: none;
+            border-color: #0078d4;
+            background-color: #ffffff;
+        }
 
-/* ナビ */
-.nav {
-    background-color: #ffffff;
-    padding: 0 32px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    height: 52px;
-    border-bottom: 1px solid #edebe9;
-}
+        /* ナビ */
+        .nav {
+            background-color: #ffffff;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            height: 52px;
+            border-bottom: 1px solid #edebe9;
+        }
 
-.nav-link {
-    text-decoration: none;
-    color: #323130;
-    font-size: 14px;
-    padding: 14px 4px;
-    border-bottom: 3px solid transparent;
-}
+        .nav-link {
+            text-decoration: none;
+            color: #323130;
+            font-size: 14px;
+            padding: 14px 4px;
+            border-bottom: 3px solid transparent;
+        }
 
-.nav-link:hover {
-    color: #0078d4;
-}
+        .nav-link:hover {
+            color: #0078d4;
+        }
 
-.nav-link.active {
-    color: #0078d4;
-    border-bottom: 3px solid #0078d4;
-    font-weight: 600;
-}
+        .nav-link.active {
+            color: #0078d4;
+            border-bottom: 3px solid #0078d4;
+            font-weight: 600;
+        }
 
-/* 全体 */
-.container {
-    max-width: 1280px;
-    margin: 32px auto 60px;
-    padding: 0 24px;
-}
+        /* 全体 */
+        .container {
+            max-width: 1280px;
+            margin: 32px auto 60px;
+            padding: 0 24px;
+        }
 
-/* ヒーロー */
-.hero {
-    background: linear-gradient(135deg, #eaf4ff, #ffffff);
-    border: 1px solid #e1dfdd;
-    border-radius: 16px;
-    padding: 36px;
-    margin-bottom: 32px;
-}
+        /* ヒーロー */
+        .hero {
+            background: linear-gradient(135deg, #eaf4ff, #ffffff);
+            border: 1px solid #e1dfdd;
+            border-radius: 16px;
+            padding: 36px;
+            margin-bottom: 32px;
+        }
 
-.hero-tag {
-    color: #0078d4;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
+        .hero-tag {
+            color: #0078d4;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
-.hero h2 {
-    font-size: 30px;
-    margin-bottom: 12px;
-    font-weight: 700;
-}
+        .hero h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
 
-.hero p {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #605e5c;
-}
+        .hero p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #605e5c;
+        }
 
-/* セクション */
-.section {
-    margin-bottom: 36px;
-}
+        /* セクション */
+        .section {
+            margin-bottom: 36px;
+        }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-}
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            gap: 16px;
+        }
 
-.section-header h2 {
-    font-size: 22px;
-    font-weight: 700;
-}
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+        }
 
-.section-link {
-    text-decoration: none;
-    color: #0078d4;
-    font-size: 14px;
-}
+        .section-link {
+            text-decoration: none;
+            color: #0078d4;
+            font-size: 14px;
+            white-space: nowrap;
+        }
 
-.section-link:hover {
-    text-decoration: underline;
-}
+        .section-link:hover {
+            text-decoration: underline;
+        }
 
-/* カード共通 */
-.card-grid {
-    display: grid;
-    gap: 20px;
-}
+        /* カード共通 */
+        .card-grid {
+            display: grid;
+            gap: 20px;
+        }
 
-.departments {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
+        .departments {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
 
-.tools {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-}
+        .tools {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
 
-.card {
-    background-color: #ffffff;
-    border: 1px solid #edebe9;
-    border-radius: 16px;
-    padding: 22px 18px;
-    text-decoration: none;
-    color: #323130;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    min-height: 170px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
+        .news-grid {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-    border-color: #c7e0f4;
-}
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #edebe9;
+            border-radius: 16px;
+            padding: 22px 18px;
+            text-decoration: none;
+            color: #323130;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            min-height: 170px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
 
-.card-title {
-    font-size: 15px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.5;
-}
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+            border-color: #c7e0f4;
+        }
 
-.card-icon {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-}
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.5;
+        }
 
-.tool-icon {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-}
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+        }
 
-.tool-card {
-    min-height: 190px;
-}
+        .tool-icon {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
 
-/* 会議室予約 */
-.meeting-card {
-    background-color: #ffffff;
-    border: 1px solid #edebe9;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
+        .tool-card {
+            min-height: 190px;
+        }
 
-#pic2 {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 12px;
-    display: block;
-}
+        /* 会議室予約 */
+        .meeting-card {
+            background-color: #ffffff;
+            border: 1px solid #edebe9;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
 
-/* レスポンシブ */
-@media (max-width: 900px) {
-    .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        gap: 14px;
-        padding: 20px;
-    }
+        .meeting-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
 
-    .topbar-right {
-        width: 100%;
-    }
+        .meeting-title-group h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
 
-    .search-box {
-        width: 100%;
-    }
+        .meeting-subtext {
+            font-size: 14px;
+            color: #605e5c;
+        }
 
-    .nav {
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 0 20px;
-    }
+        .office-switch {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-    .container {
-        padding: 0 16px;
-    }
+        .office-btn {
+            background-color: #ffffff;
+            border: 1px solid #d1d1d1;
+            color: #323130;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-    .hero {
-        padding: 24px;
-    }
+        .office-btn:hover {
+            border-color: #0078d4;
+            color: #0078d4;
+            background-color: #f3f9fd;
+        }
 
-    .hero h2 {
-        font-size: 24px;
-    }
-}
+        .office-btn.active {
+            background-color: #0078d4;
+            color: #ffffff;
+            border-color: #0078d4;
+        }
+
+        .office-panel {
+            display: none;
+        }
+
+        .office-panel.active {
+            display: block;
+        }
+
+        .office-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            padding: 14px 16px;
+            background-color: #faf9f8;
+            border: 1px solid #edebe9;
+            border-radius: 12px;
+        }
+
+        .office-name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .office-desc {
+            font-size: 13px;
+            color: #605e5c;
+            margin-top: 4px;
+        }
+
+        .office-status {
+            font-size: 13px;
+            color: #0078d4;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .meeting-image-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #edebe9;
+            background-color: #ffffff;
+        }
+
+        .meeting-image {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+        }
+
+        /* 社内ニュース */
+        .news-card {
+            background-color: #ffffff;
+            border: 1px solid #edebe9;
+            border-radius: 16px;
+            padding: 22px 20px;
+            text-decoration: none;
+            color: #323130;
+            display: block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+            border-color: #c7e0f4;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #605e5c;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .news-text {
+            font-size: 14px;
+            color: #605e5c;
+            line-height: 1.7;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 900px) {
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                gap: 14px;
+                padding: 20px;
+            }
+
+            .topbar-right {
+                width: 100%;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .nav {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 24px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meeting-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -302,6 +451,7 @@ body {
         <a href="#" class="nav-link">部門ポータル</a>
         <a href="#" class="nav-link">業務ツール</a>
         <a href="#" class="nav-link">会議室予約</a>
+        <a href="#" class="nav-link">社内ニュース</a>
     </nav>
 
     <main class="container">
@@ -399,11 +549,114 @@ body {
             </div>
 
             <div class="meeting-card">
-                <img src="pic2.png" alt="会議室予約状況" id="pic2">
+                <div class="meeting-top">
+                    <div class="meeting-title-group">
+                        <h3>オフィス別 会議室予約ビュー</h3>
+                        <p class="meeting-subtext">
+                            ボタンを押すと、各拠点の会議室予約状況を切り替えて確認できます。
+                        </p>
+                    </div>
+
+                    <div class="office-switch">
+                        <button class="office-btn active" onclick="showOffice('tokyo', this)">東京本社</button>
+                        <button class="office-btn" onclick="showOffice('osaka', this)">大阪オフィス</button>
+                        <button class="office-btn" onclick="showOffice('nagoya', this)">名古屋オフィス</button>
+                    </div>
+                </div>
+
+                <div id="tokyo" class="office-panel active">
+                    <div class="office-info">
+                        <div>
+                            <p class="office-name">東京本社 会議室予約状況</p>
+                            <p class="office-desc">本社 3F・4F 会議室の予約状況を表示</p>
+                        </div>
+                        <p class="office-status">現在表示中：東京本社</p>
+                    </div>
+                    <div class="meeting-image-wrap">
+                        <img src="pic2.png" alt="東京本社の会議室予約状況" class="meeting-image">
+                    </div>
+                </div>
+
+                <div id="osaka" class="office-panel">
+                    <div class="office-info">
+                        <div>
+                            <p class="office-name">大阪オフィス 会議室予約状況</p>
+                            <p class="office-desc">大阪拠点の会議室予約状況を表示</p>
+                        </div>
+                        <p class="office-status">現在表示中：大阪オフィス</p>
+                    </div>
+                    <div class="meeting-image-wrap">
+                        <img src="pic-osaka.png" alt="大阪オフィスの会議室予約状況" class="meeting-image">
+                    </div>
+                </div>
+
+                <div id="nagoya" class="office-panel">
+                    <div class="office-info">
+                        <div>
+                            <p class="office-name">名古屋オフィス 会議室予約状況</p>
+                            <p class="office-desc">名古屋拠点の会議室予約状況を表示</p>
+                        </div>
+                        <p class="office-status">現在表示中：名古屋オフィス</p>
+                    </div>
+                    <div class="meeting-image-wrap">
+                        <img src="pic-nagoya.png" alt="名古屋オフィスの会議室予約状況" class="meeting-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社内ニュース -->
+        <section class="section">
+            <div class="section-header">
+                <h2>社内ニュース</h2>
+                <a href="#" class="section-link">一覧を見る</a>
+            </div>
+
+            <div class="card-grid news-grid">
+                <a href="#" class="news-card">
+                    <p class="news-meta">2026/04/09 | お知らせ</p>
+                    <h3 class="news-title">新しい社内ポータルの公開について</h3>
+                    <p class="news-text">
+                        部門サイト、業務ツール、会議室予約、社内ニュースへのアクセスを
+                        1つにまとめた新しい社内ポータルを公開しました。
+                    </p>
+                </a>
+
+                <a href="#" class="news-card">
+                    <p class="news-meta">2026/04/05 | IT</p>
+                    <h3 class="news-title">セキュリティ動画見てください</h3>
+                    <p class="news-text">
+                    </p>
+                </a>
+
+                <a href="#" class="news-card">
+                    <p class="news-meta">2026/04/02 | IT</p>
+                    <h3 class="news-title">会議室利用ルール</h3>
+                    <p class="news-text">
+                    </p>
+                </a>
             </div>
         </section>
 
     </main>
+
+    <script>
+        function showOffice(officeId, clickedButton) {
+            const panels = document.querySelectorAll('.office-panel');
+            const buttons = document.querySelectorAll('.office-btn');
+
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(officeId).classList.add('active');
+            clickedButton.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
