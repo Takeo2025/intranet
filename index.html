@@ -13,19 +13,26 @@
 
         body {
             font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
-            background-color: #f4f6f9;
+            background: #f5f7fa;
             color: #323130;
+        }
+
+        a {
+            color: inherit;
         }
 
         /* 上部バー */
         .topbar {
             height: 72px;
             background-color: #ffffff;
-            border-bottom: 1px solid #e1dfdd;
+            border-bottom: 1px solid #e6e6e6;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .topbar-left {
@@ -39,7 +46,7 @@
             height: 40px;
             background: linear-gradient(135deg, #0078d4, #00a4ef);
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 22px;
             display: flex;
             justify-content: center;
@@ -48,7 +55,7 @@
         }
 
         .site-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #605e5c;
             margin-bottom: 2px;
         }
@@ -62,8 +69,8 @@
             width: 320px;
             height: 40px;
             border: 1px solid #d1d1d1;
-            border-radius: 8px;
-            padding: 0 14px;
+            border-radius: 999px;
+            padding: 0 16px;
             font-size: 14px;
             background-color: #faf9f8;
         }
@@ -91,6 +98,7 @@
             font-size: 14px;
             padding: 14px 4px;
             border-bottom: 3px solid transparent;
+            transition: 0.2s ease;
         }
 
         .nav-link:hover {
@@ -106,28 +114,30 @@
         /* 全体 */
         .container {
             max-width: 1280px;
-            margin: 32px auto 60px;
+            margin: 28px auto 60px;
             padding: 0 24px;
         }
 
         /* ヒーロー */
         .hero {
-            background: linear-gradient(135deg, #eaf4ff, #ffffff);
-            border: 1px solid #e1dfdd;
-            border-radius: 16px;
-            padding: 36px;
-            margin-bottom: 32px;
+            background: linear-gradient(135deg, #eef6ff, #ffffff);
+            border: 1px solid #e4edf6;
+            border-radius: 24px;
+            padding: 38px 40px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
         }
 
         .hero-tag {
             color: #0078d4;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
         }
 
         .hero h2 {
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 12px;
             font-weight: 700;
         }
@@ -136,19 +146,28 @@
             font-size: 15px;
             line-height: 1.8;
             color: #605e5c;
+            max-width: 760px;
         }
 
-        /* セクション */
+        /* 汎用 */
         .section {
-            margin-bottom: 36px;
+            margin-bottom: 28px;
+        }
+
+        .section-shell {
+            background: #ffffff;
+            border: 1px solid #ecebea;
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
             gap: 16px;
+            margin-bottom: 18px;
         }
 
         .section-header h2 {
@@ -156,126 +175,142 @@
             font-weight: 700;
         }
 
+        .section-desc {
+            font-size: 13px;
+            color: #605e5c;
+            margin-top: 4px;
+        }
+
         .section-link {
             text-decoration: none;
             color: #0078d4;
             font-size: 14px;
             white-space: nowrap;
+            font-weight: 600;
         }
 
         .section-link:hover {
             text-decoration: underline;
         }
 
+        /* 上段レイアウト */
+        .top-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-bottom: 28px;
+        }
+
         /* カード共通 */
         .card-grid {
             display: grid;
-            gap: 20px;
+            gap: 16px;
         }
 
         .departments {
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
         }
 
         .tools {
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(2, minmax(160px, 1fr));
         }
 
         .news-grid {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: 1.2fr 1fr 1fr;
         }
 
         .card {
             background-color: #ffffff;
             border: 1px solid #edebe9;
-            border-radius: 16px;
-            padding: 22px 18px;
+            border-radius: 18px;
+            padding: 18px 14px;
             text-decoration: none;
             color: #323130;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
-            min-height: 170px;
+            gap: 12px;
+            min-height: 148px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
             border-color: #c7e0f4;
         }
 
         .card-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             text-align: center;
             line-height: 1.5;
         }
 
         .card-icon {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        .tool-icon {
             width: 72px;
             height: 72px;
             object-fit: contain;
         }
 
-        .tool-icon {
-            width: 90px;
-            height: 90px;
-            object-fit: contain;
-        }
-
         .tool-card {
-            min-height: 190px;
+            min-height: 160px;
         }
 
-        /* 会議室予約 */
-        .meeting-card {
-            background-color: #ffffff;
-            border: 1px solid #edebe9;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        /* 会議室予約を小さめ＆すっきり */
+        .meeting-shell {
+            background: linear-gradient(180deg, #ffffff, #fcfcfc);
+            border: 1px solid #ecebea;
+            border-radius: 22px;
+            padding: 20px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
         }
 
         .meeting-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
-        .meeting-title-group h3 {
+        .meeting-left h2 {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .meeting-subtext {
-            font-size: 14px;
+        .meeting-note {
+            font-size: 13px;
             color: #605e5c;
         }
 
         .office-switch {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .office-btn {
             background-color: #ffffff;
-            border: 1px solid #d1d1d1;
+            border: 1px solid #d8d8d8;
             color: #323130;
-            padding: 10px 16px;
+            padding: 8px 14px;
             border-radius: 999px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: 0.2s ease;
         }
 
         .office-btn:hover {
@@ -298,73 +333,80 @@
             display: block;
         }
 
-        .office-info {
+        .meeting-mini-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 14px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
-            padding: 14px 16px;
-            background-color: #faf9f8;
-            border: 1px solid #edebe9;
-            border-radius: 12px;
+            padding: 12px 14px;
+            background-color: #f8fafc;
+            border: 1px solid #edf1f5;
+            border-radius: 14px;
+            margin-bottom: 12px;
         }
 
         .office-name {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
         }
 
         .office-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: #605e5c;
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
         .office-status {
-            font-size: 13px;
+            font-size: 12px;
             color: #0078d4;
-            font-weight: 600;
-            white-space: nowrap;
+            font-weight: 700;
         }
 
         .meeting-image-wrap {
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #edebe9;
-            background-color: #ffffff;
+            border: 1px solid #edf1f5;
+            background: #ffffff;
         }
 
         .meeting-image {
             width: 100%;
             display: block;
-            border-radius: 14px;
+            max-height: 270px;
+            object-fit: cover;
         }
 
         /* 社内ニュース */
         .news-card {
             background-color: #ffffff;
             border: 1px solid #edebe9;
-            border-radius: 16px;
-            padding: 22px 20px;
+            border-radius: 18px;
+            padding: 20px;
             text-decoration: none;
             color: #323130;
             display: block;
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            min-height: 190px;
         }
 
         .news-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
             border-color: #c7e0f4;
+        }
+
+        .news-card.featured {
+            background: linear-gradient(135deg, #f7fbff, #ffffff);
+            border-color: #dcecff;
         }
 
         .news-meta {
             font-size: 12px;
             color: #605e5c;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .news-title {
@@ -381,6 +423,20 @@
         }
 
         /* レスポンシブ */
+        @media (max-width: 1100px) {
+            .top-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+
         @media (max-width: 900px) {
             .topbar {
                 flex-direction: column;
@@ -409,21 +465,31 @@
             }
 
             .hero {
-                padding: 24px;
+                padding: 26px 22px;
             }
 
             .hero h2 {
-                font-size: 24px;
+                font-size: 26px;
             }
 
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
+            .section-header,
             .meeting-top {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .departments,
+            .tools,
+            .news-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .departments,
+            .tools,
+            .news-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -458,119 +524,119 @@
 
         <!-- ヒーロー -->
         <section class="hero">
-            <div class="hero-text">
-                <p class="hero-tag">Company Portal</p>
-                <h2>ようこそ、社内ポータルへ</h2>
-                <p>
-                    部門サイト、業務ツール、会議室予約、社内ニュースなど、
-                    よく使う情報へすばやくアクセスできます。
-                </p>
+            <p class="hero-tag">COMPANY PORTAL</p>
+            <h2>ようこそ、社内ポータルへ</h2>
+            <p>
+                部門サイト、業務ツール、会議室予約、社内ニュースなど、
+                日常業務で使う情報へすばやくアクセスできます。
+            </p>
+        </section>
+
+        <!-- 上段：部門＋ツール -->
+        <section class="top-grid">
+            <div class="section-shell">
+                <div class="section-header">
+                    <div>
+                        <h2>部門ポータルサイト</h2>
+                        <p class="section-desc">各部門ページへショートカットで移動</p>
+                    </div>
+                    <a href="#" class="section-link">すべて表示</a>
+                </div>
+
+                <div class="card-grid departments">
+                    <a href="#" class="card">
+                        <p class="card-title">財務部</p>
+                        <img src="imgfin.png" alt="財務部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">総務・人事部</p>
+                        <img src="imgadm.png" alt="総務・人事部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">IT部</p>
+                        <img src="imgit.png" alt="IT部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">営業部</p>
+                        <img src="imgsales.png" alt="営業部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">サービス部</p>
+                        <img src="imgservice.png" alt="サービス部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">マーケティング部</p>
+                        <img src="imgmark.png" alt="マーケティング部" class="card-icon">
+                    </a>
+
+                    <a href="#" class="card">
+                        <p class="card-title">資材部</p>
+                        <img src="imgshizai.png" alt="資材部" class="card-icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="section-shell">
+                <div class="section-header">
+                    <div>
+                        <h2>よく使う業務ツール</h2>
+                        <p class="section-desc">利用頻度の高いシステムにすぐアクセス</p>
+                    </div>
+                    <a href="#" class="section-link">管理する</a>
+                </div>
+
+                <div class="card-grid tools">
+                    <a href="#" class="card tool-card">
+                        <p class="card-title">Styleflow</p>
+                        <img src="Styleflow.png" alt="Styleflow" class="tool-icon">
+                    </a>
+
+                    <a href="#" class="card tool-card">
+                        <p class="card-title">Zoho</p>
+                        <img src="zoho.png" alt="Zoho" class="tool-icon">
+                    </a>
+
+                    <a href="#" class="card tool-card">
+                        <p class="card-title">NetSuite</p>
+                        <img src="NS.png" alt="NetSuite" class="tool-icon">
+                    </a>
+
+                    <a href="#" class="card tool-card">
+                        <p class="card-title">Salesforce</p>
+                        <img src="SF.png" alt="Salesforce" class="tool-icon">
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- 部門ポータル -->
+        <!-- 会議室予約（コンパクト版） -->
         <section class="section">
-            <div class="section-header">
-                <h2>部門ポータルサイト</h2>
-            </div>
-
-            <div class="card-grid departments">
-                <a href="#" class="card">
-                    <p class="card-title">財務部</p>
-                    <img src="imgfin.png" alt="財務部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">総務・人事部</p>
-                    <img src="imgadm.png" alt="総務・人事部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">IT部</p>
-                    <img src="imgit.png" alt="IT部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">営業部</p>
-                    <img src="imgsales.png" alt="営業部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">サービス部</p>
-                    <img src="imgservice.png" alt="サービス部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">マーケティング部</p>
-                    <img src="imgmark.png" alt="マーケティング部" class="card-icon">
-                </a>
-
-                <a href="#" class="card">
-                    <p class="card-title">資材部</p>
-                    <img src="imgshizai.png" alt="資材部" class="card-icon">
-                </a>
-            </div>
-        </section>
-
-        <!-- 業務ツール -->
-        <section class="section">
-            <div class="section-header">
-                <h2>よく使う業務ツール</h2>
-            </div>
-
-            <div class="card-grid tools">
-                <a href="#" class="card tool-card">
-                    <p class="card-title">Styleflow</p>
-                    <img src="Styleflow.png" alt="Styleflow" class="tool-icon">
-                </a>
-
-                <a href="#" class="card tool-card">
-                    <p class="card-title">Zoho</p>
-                    <img src="zoho.png" alt="Zoho" class="tool-icon">
-                </a>
-
-                <a href="#" class="card tool-card">
-                    <p class="card-title">NetSuite</p>
-                    <img src="NS.png" alt="NetSuite" class="tool-icon">
-                </a>
-
-                <a href="#" class="card tool-card">
-                    <p class="card-title">Salesforce</p>
-                    <img src="SF.png" alt="Salesforce" class="tool-icon">
-                </a>
-            </div>
-        </section>
-
-        <!-- 会議室予約 -->
-        <section class="section">
-            <div class="section-header">
-                <h2>会議室予約状況</h2>
-                <a href="#" class="section-link">Outlookで開く</a>
-            </div>
-
-            <div class="meeting-card">
+            <div class="meeting-shell">
                 <div class="meeting-top">
-                    <div class="meeting-title-group">
-                        <h3>オフィス別 会議室予約ビュー</h3>
-                        <p class="meeting-subtext">
-                            ボタンを押すと、各拠点の会議室予約状況を切り替えて確認できます。
-                        </p>
+                    <div class="meeting-left">
+                        <h2>会議室予約状況</h2>
+                        <p class="meeting-note">拠点ごとに予約ビューを切り替えて確認できます</p>
                     </div>
 
                     <div class="office-switch">
                         <button class="office-btn active" onclick="showOffice('tokyo', this)">東京本社</button>
-                        <button class="office-btn" onclick="showOffice('osaka', this)">大阪オフィス</button>
-                        <button class="office-btn" onclick="showOffice('nagoya', this)">名古屋オフィス</button>
+                        <button class="office-btn" onclick="showOffice('osaka', this)">大阪</button>
+                        <button class="office-btn" onclick="showOffice('nagoya', this)">名古屋</button>
                     </div>
                 </div>
 
                 <div id="tokyo" class="office-panel active">
-                    <div class="office-info">
+                    <div class="meeting-mini-info">
                         <div>
                             <p class="office-name">東京本社 会議室予約状況</p>
-                            <p class="office-desc">本社会議室の予約状況を表示</p>
+                            <p class="office-desc">3F・4F 会議室の予約状況を表示</p>
                         </div>
-                        <p class="office-status">現在表示中：東京本社</p>
+                        <p class="office-status">表示中：東京本社</p>
                     </div>
                     <div class="meeting-image-wrap">
                         <img src="pic2.png" alt="東京本社の会議室予約状況" class="meeting-image">
@@ -578,12 +644,12 @@
                 </div>
 
                 <div id="osaka" class="office-panel">
-                    <div class="office-info">
+                    <div class="meeting-mini-info">
                         <div>
                             <p class="office-name">大阪オフィス 会議室予約状況</p>
                             <p class="office-desc">大阪拠点の会議室予約状況を表示</p>
                         </div>
-                        <p class="office-status">現在表示中：大阪オフィス</p>
+                        <p class="office-status">表示中：大阪オフィス</p>
                     </div>
                     <div class="meeting-image-wrap">
                         <img src="pic-osaka.png" alt="大阪オフィスの会議室予約状況" class="meeting-image">
@@ -591,12 +657,12 @@
                 </div>
 
                 <div id="nagoya" class="office-panel">
-                    <div class="office-info">
+                    <div class="meeting-mini-info">
                         <div>
-                            <p class="office-name">福岡オフィス 会議室予約状況</p>
-                            <p class="office-desc">福岡拠点の会議室予約状況を表示</p>
+                            <p class="office-name">名古屋オフィス 会議室予約状況</p>
+                            <p class="office-desc">名古屋拠点の会議室予約状況を表示</p>
                         </div>
-                        <p class="office-status">現在表示中：オフィス</p>
+                        <p class="office-status">表示中：名古屋オフィス</p>
                     </div>
                     <div class="meeting-image-wrap">
                         <img src="pic-nagoya.png" alt="名古屋オフィスの会議室予約状況" class="meeting-image">
@@ -607,34 +673,42 @@
 
         <!-- 社内ニュース -->
         <section class="section">
-            <div class="section-header">
-                <h2>社内ニュース</h2>
-                <a href="#" class="section-link">一覧を見る</a>
-            </div>
+            <div class="section-shell">
+                <div class="section-header">
+                    <div>
+                        <h2>社内ニュース</h2>
+                        <p class="section-desc">最新のお知らせや部門からの案内</p>
+                    </div>
+                    <a href="#" class="section-link">一覧を見る</a>
+                </div>
 
-            <div class="card-grid news-grid">
-                <a href="#" class="news-card">
-                    <p class="news-meta">2026/04/09 | お知らせ</p>
-                    <h3 class="news-title">新しい社内ポータルの公開について</h3>
-                    <p class="news-text">
-                        部門サイト、業務ツール、会議室予約、社内ニュースへのアクセスを
-                        1つにまとめた新しい社内ポータルを公開しました。
-                    </p>
-                </a>
+                <div class="card-grid news-grid">
+                    <a href="#" class="news-card featured">
+                        <p class="news-meta">2026/04/09 | お知らせ</p>
+                        <h3 class="news-title">新しい社内ポータルの公開について</h3>
+                        <p class="news-text">
+                            部門サイト、業務ツール、会議室予約、社内ニュースへのアクセスを
+                            1つにまとめた新しい社内ポータルを公開しました。日常業務に必要な
+                            情報へ、より見つけやすくアクセスできます。
+                        </p>
+                    </a>
 
-                <a href="#" class="news-card">
-                    <p class="news-meta">2026/04/05 | IT</p>
-                    <h3 class="news-title">セキュリティ動画見てください</h3>
-                    <p class="news-text">
-                    </p>
-                </a>
+                    <a href="#" class="news-card">
+                        <p class="news-meta">2026/04/05 | IT</p>
+                        <h3 class="news-title">セキュリティ研修の実施予定</h3>
+                        <p class="news-text">
+                            情報セキュリティに関する社内研修を今月実施予定です。詳細は後日案内します。
+                        </p>
+                    </a>
 
-                <a href="#" class="news-card">
-                    <p class="news-meta">2026/04/02 | IT</p>
-                    <h3 class="news-title">会議室利用ルール</h3>
-                    <p class="news-text">
-                    </p>
-                </a>
+                    <a href="#" class="news-card">
+                        <p class="news-meta">2026/04/02 | 総務</p>
+                        <h3 class="news-title">会議室利用ルール更新のお知らせ</h3>
+                        <p class="news-text">
+                            会議室の利用ルールが一部変更されました。予約前に最新ルールをご確認ください。
+                        </p>
+                    </a>
+                </div>
             </div>
         </section>
 
